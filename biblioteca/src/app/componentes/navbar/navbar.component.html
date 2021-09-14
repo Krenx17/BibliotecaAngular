@@ -1,0 +1,72 @@
+<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+
+<body>
+    <div class="sidebar">
+        <!--Logo-->
+        <div class="logo_content">
+            <div class="logo">
+                <div class="logo_name">Biblioteca</div>
+            </div>
+        </div>
+        <!--Opciones del menu-->
+        <ul class="nav_list">
+            <li (click)='profile()' *ngIf='_userService.getIdentidad().rol=="admin" || _userService.getIdentidad().rol=="user"'>
+                <a>
+                    <i class='bx bx-user' ></i>/
+                    <span>Profile</span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <i class='bx bxs-home' ></i>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <i class='bx bx-book'></i>
+                    <span>Books</span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <i class='bx bx-book-content'></i>
+                    <span>Magazine</span>
+                </a>
+            </li>
+            <li (click)='users()' *ngIf='_userService.getIdentidad().rol=="admin"'>
+                <a>
+                    <i class='bx bx-group' ></i>
+                    <span>Users</span>
+                </a>
+            </li>
+        </ul>
+        <!--Opciones usuario-->
+        <div class="profile_content" routerLink='/login' routerLinkActive='active'>
+            <div class="profile">
+                <div class="profile_details">
+                    <div class="name_job">
+                        <div class="name">Ingresar</div>
+                        <div class="job">Si deseas prestar un libro</div>
+                    </div>
+                </div>
+                <i class='bx bx-log-in'></i>
+            </div>
+        </div>
+        <div class="profile_content" routerLink='/login' routerLinkActive='active' *ngIf='_userService.getIdentidad().rol=="admin" || _userService.getIdentidad().rol=="user"'>
+            <div class="profile">
+                <div class="profile_details">
+                    <div class="name_job">
+                        <div class="name">{{_userService.getIdentidad().user}}</div>
+                        <div class="job">{{_userService.getIdentidad().rol}}</div>
+                    </div>
+                </div>
+                <i class='bx bx-log-out' (click)='logout()'></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="home_content">
+        <router-outlet></router-outlet>
+    </div>
+</body>
