@@ -1,1 +1,37 @@
 <p>principal works!</p>
+<body>
+    <div class="card-group">
+        <div style=" padding-left:5px" *ngFor='let book of books'>
+            <!--Todos los libros o revistas-->
+            <div *ngIf='_bookService.getOpcion()==book.tipo' class="card" style="width: 18rem;">
+                <div class="card h-100" >
+                    <img src="{{ 'https://picsum.photos/300/150?' + book.autor }}" class="card-img-top" alt="...">
+                    <div class="card-body" style="height: 14.5rem;">
+                      <h4 class="card-title">{{book.titulo}}</h4>
+                      <h6><em>Autor: {{book.autor}} <br> Edición: {{book.edicion}}</em><br></h6>
+                      <h6 *ngIf='book.tipo=="revista"'>Frecuencia: {{book.frecuencia}}</h6>
+                      <p class="card-text" style="height: 6rem; overflow: auto;">{{book.descripcion}}</p>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        <a href="#" class="btn btn-primary">Pedir Prestado</a>
+                      </div>
+                  </div>
+            </div>
+            <!--Todos los libros y revistas-->
+            <div *ngIf='!_bookService.getOpcion()' class="card" style="width: 18rem;">
+                <div class="card h-100" >
+                    <img src="{{ 'https://picsum.photos/300/150?' + book.autor }}" class="card-img-top" alt="...">
+                    <div class="card-body" style="height: 14.5rem;">
+                      <h4 class="card-title">{{book.titulo}}</h4>
+                      <h6><em>Autor: {{book.autor}} <br> Edición: {{book.edicion}}</em><br></h6>
+                      <h6 *ngIf='book.tipo=="revista"'>Frecuencia: {{book.frecuencia}}</h6>
+                      <p class="card-text" style="height: 6rem; overflow: auto;">{{book.descripcion}}</p>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        <a href="#" class="btn btn-primary">Pedir Prestado</a>
+                      </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</body>

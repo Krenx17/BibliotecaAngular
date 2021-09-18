@@ -1,1 +1,29 @@
-<p>profile works!</p>
+<h1>Mi perfil</h1>
+<body>
+    <div class="datos">
+        <div class="mb-3">
+            <label class="titulo">Carne:</label><br>
+            <label class="texto">{{_userService.getIdentidad().carne}}</label>
+        </div>
+        <div class="mb-3">
+            <label class="titulo">Usuario:</label><br>
+            <label class="texto">{{_userService.getIdentidad().user}}</label>
+        </div>
+        <div class="mb-3">
+            <label class="titulo">Email:</label><br>
+            <label class="texto">{{_userService.getIdentidad().email}}</label>
+        </div>
+        <div class="mb-3">
+            <label class="titulo">Nombre:</label><br>
+            <label class="texto">{{_userService.getIdentidad().nombre}}</label>
+        </div>
+        <div class="mb-3">
+            <label class="titulo">Apellido:</label><br>
+            <label class="texto">{{_userService.getIdentidad().apellido}}</label>
+        </div>
+        <div class="mb-3">
+            <label class="titulo">Rol:</label><br>
+            <label class="texto">{{_userService.getIdentidad().rol}}</label>
+        </div>
+    </div>
+</body>

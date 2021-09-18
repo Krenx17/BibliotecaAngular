@@ -1,1 +1,41 @@
-<p>register works!</p>
+<body>
+    <div class="container">
+      <h1>Registrate ya</h1>
+      <div class="row justify-content-md-center">
+          <div class="col col-lg-6">
+            <form>
+                <div class="mb-3">
+                  <label for="inputName" class="form-label">Carne</label>
+                  <input type="user" class="form-control" id="inputCarne" aria-describedby="emailHelp" name="carne" #name="ngModel" [(ngModel)]="userModel.carne" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="inputName" class="form-label">Email</label>
+                    <input type="user" class="form-control" id="inputEmail" aria-describedby="emailHelp" name="email" #name="ngModel" [(ngModel)]="userModel.email" required>
+                  </div>
+                  
+                <div class="mb-3">
+                    <label for="inputName" class="form-label">Nombre</label>
+                    <input type="user" class="form-control" id="inputNombre" aria-describedby="emailHelp" name="nombre" #name="ngModel" [(ngModel)]="userModel.nombre" required>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="inputName" class="form-label">Apellido</label>
+                    <input type="user" class="form-control" id="inputApellido" aria-describedby="emailHelp" name="apellidp" #name="ngModel" [(ngModel)]="userModel.apellido" required>
+                  </div>
+
+                <div class="mb-3">
+                  <label for="inputPassword" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1" name="password" #password="ngModel" [(ngModel)]="userModel.password" required>
+                </div>
+
+                <div id="text" class="form-text">No compartas tus credenciales con nadie.</div>
+                <div class="regresar">
+                  <a class="fw-bold" routerLink="/login" routerLinkActive="active">Ya tengo una cuenta</a>
+                </div>
+                <button type="submit" class="btn btn-primary" (click)="register()">Registrar</button>
+              </form>
+          </div>
+      </div>
+    </div>
+  </body>

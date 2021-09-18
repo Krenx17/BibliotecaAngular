@@ -10,6 +10,7 @@ import { Book } from '../modelos/book.model';
 export class BookService {
   public headersvar = new HttpHeaders().set('Content-Type', 'application/json')
   public identity: any
+  public opcion: any
   public token: any
   public url: String
 
@@ -87,5 +88,15 @@ export class BookService {
       this.identity = null
     }
     return this.identity;
+  }
+
+  getOpcion(){
+    var identidad2 = localStorage.getItem('opcion');
+    if (identidad2 !="undefined"){
+      this.opcion =identidad2
+    }else{
+      this.opcion = null
+    }
+    return this.opcion;
   }
 }

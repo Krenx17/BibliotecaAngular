@@ -25,11 +25,15 @@ export class NavbarComponent implements OnInit {
     this._router.navigate(['/home'])
   }
 
-  profile(){
-    this._router.navigate(['/profile'])
+  home(){
+    localStorage.removeItem('opcion')
   }
 
-  users(){
-    this._router.navigate(['/users'])
+  book(){
+    localStorage.setItem('opcion', 'libro')
+  }
+
+  maga(){
+    localStorage.setItem('opcion', 'revista')
   }
 }

@@ -12,6 +12,8 @@ import { UsersComponent } from './componentes/users/users.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { HistorialComponent } from './componentes/historial/historial.component';
+import { PrestadosComponent } from './componentes/prestados/prestados.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarComponent,
     LibroComponent,
     ProfileComponent,
-    UsersComponent
+    UsersComponent,
+    HistorialComponent,
+    PrestadosComponent
   ],
   imports: [
     BrowserModule,

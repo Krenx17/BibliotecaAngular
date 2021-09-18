@@ -10,31 +10,37 @@
         </div>
         <!--Opciones del menu-->
         <ul class="nav_list">
-            <li (click)='profile()' *ngIf='_userService.getIdentidad().rol=="admin" || _userService.getIdentidad().rol=="user"'>
-                <a>
-                    <i class='bx bx-user' ></i>/
-                    <span>Profile</span>
-                </a>
-            </li>
-            <li>
+            <li (click)='home()' routerLink='/home' routerLinkActive='active'>
                 <a>
                     <i class='bx bxs-home' ></i>
                     <span>Home</span>
                 </a>
             </li>
-            <li>
+            <li (click)='book()' routerLink='/home' routerLinkActive='active'>
                 <a>
                     <i class='bx bx-book'></i>
                     <span>Books</span>
                 </a>
             </li>
-            <li>
+            <li (click)='maga()' routerLink='/home' routerLinkActive='active'>
                 <a>
                     <i class='bx bx-book-content'></i>
                     <span>Magazine</span>
                 </a>
             </li>
-            <li (click)='users()' *ngIf='_userService.getIdentidad().rol=="admin"'>
+            <li routerLink='/profile' routerLinkActive='active' *ngIf='_userService.getIdentidad().rol=="admin" || _userService.getIdentidad().rol=="user"'>
+                <a>
+                    <i class='bx bx-user' ></i>
+                    <span>Profile</span>
+                </a>
+            </li>
+            <li routerLink='/prestados' routerLinkActive='active' *ngIf='_userService.getIdentidad().rol=="user"'>
+                <a>
+                    <i class='bx bx-book-open'></i>
+                    <span>Borrowed books</span>
+                </a>
+            </li>
+            <li routerLink='/users' routerLinkActive='active' *ngIf='_userService.getIdentidad().rol=="admin"'>
                 <a>
                     <i class='bx bx-group' ></i>
                     <span>Users</span>
@@ -59,9 +65,9 @@
                     <div class="name_job">
                         <div class="name">{{_userService.getIdentidad().user}}</div>
                         <div class="job">{{_userService.getIdentidad().rol}}</div>
+                        <div class="job" (click)='logout()'>Cerrar Sesión<i class='bx bx-log-out'></i></div>
                     </div>
                 </div>
-                <i class='bx bx-log-out' (click)='logout()'></i>
             </div>
         </div>
     </div>

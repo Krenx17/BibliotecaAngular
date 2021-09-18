@@ -3,11 +3,11 @@ export class User{
         public _id: String,
         public carne: String,
         public email: String,
-        public user: String,
+        public usuario: String,
         public nombre: String,
         public apellido: String,
         public rol: String,
-        public pass: String,
+        public password: String,
         public getToken: String
     ){}
 }
