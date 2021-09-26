@@ -8,6 +8,12 @@ export class User{
         public apellido: String,
         public rol: String,
         public password: String,
+        public historial: [{
+          libro: String
+        }],
+        public prestados: [{
+          libro: String
+        }],
         public getToken: String
     ){}
 }

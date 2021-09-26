@@ -14,8 +14,8 @@ export class LoginComponent implements OnInit {
   public token: any
   public identity: any
 
-  constructor(private _userService: UserService, private _router: Router) { 
-    this.userModel = new User('', '', '', '', '', '', '', '', '')
+  constructor(private _userService: UserService, private _router: Router) {
+    this.userModel = new User('', '', '', '', '', '', '', '', [{libro:''}], [{libro:''}], '')
   }
 
   ngOnInit(): void {

@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HistorialComponent } from './componentes/historial/historial.component';
 import { PrestadosComponent } from './componentes/prestados/prestados.component';
+import { GraficasComponent } from './componentes/graficas/graficas.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PrestadosComponent } from './componentes/prestados/prestados.component'
     ProfileComponent,
     UsersComponent,
     HistorialComponent,
-    PrestadosComponent
+    PrestadosComponent,
+    GraficasComponent
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,51 @@
-<p>libro works!</p>
+<body>
+    <article>
+        <section>
+            <div class="container">
+                <div class="row justify-content-md-center">
+                    <div class="col-8">
+                        <div class="card mb-3">
+                            <img src="{{ 'https://picsum.photos/300/100?' + book._id }}" class="img-fluid rounded-start" alt="">
+                            <div class="card-body">
+                                <h1>{{book.titulo}}</h1>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Autor: {{book.autor}}</li>
+                                    <li class="list-group-item">Edicion: {{book.edicion}}</li>
+                                    <li class="list-group-item" *ngIf='book.tipo == "revista"'>Frecuencia: {{book.frecuencia}}</li>
+                                </ul>
+                                <b>{{book.descripcion}}</b>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-header">
+                              Datos
+                            </div>
+                            <ul class="list-group list-group-flush">
+                              <li class="list-group-item">Disponibles: {{book.disponibles}}</li>
+                              <li class="list-group-item">Temas: {{book.temas}}</li>
+                              <li class="list-group-item">palabrasclave: {{book.palabrasclave}}</li>
+                              <li class="list-group-item">Tipo: {{book.tipo}}</li>
+                            </ul>
+                        </div><br>
+                        <div *ngFor='let libros of _userService.getIdentidad().prestados'>
+                          <ng-container *ngIf="libros.libro == book._id; then prestado; else prestar">
+                          </ng-container>
+
+                          <ng-template #prestado>
+                            <button type="button" class="btn btn-outline-secondary">Devolver</button>
+                          </ng-template>
+
+                          <ng-template #prestar>
+                            <div *ngIf='this._userService.getIdentidad().prestados.length<10'>
+                              <button type="button" class="btn btn-outline-success" (click)="pedirprestado()">Prestar</button>
+                            </div>
+                          </ng-template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </article>
+</body>

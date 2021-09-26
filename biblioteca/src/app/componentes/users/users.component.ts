@@ -13,8 +13,8 @@ export class UsersComponent implements OnInit {
   public usuarios: any
   public token: any
 
-  constructor(private _userService: UserService) { 
-    this.userModel = new User('', '', '', '', '', '', '', '', '')
+  constructor(private _userService: UserService) {
+    this.userModel = new User('', '', '', '', '', '', '', '', [{libro:''}], [{libro:''}], '')
   }
 
   ngOnInit(): void {
@@ -36,5 +36,5 @@ export class UsersComponent implements OnInit {
   editUser(){}
 
   deleteUser(){}
-  
+
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Book } from 'src/app/modelos/book.model';
 import { BookService } from 'src/app/servicios/book.service';
 
@@ -12,8 +13,8 @@ export class PrincipalComponent implements OnInit {
   public book: Book
   public books: any
 
-  constructor(public _bookService: BookService) { 
-    this.book = new Book('', '', '', '', '', '', '', '','', 0)
+  constructor(public _bookService: BookService, private _router: Router) { 
+    this.book = new Book('', '', '', '', '', '', '', '','', 0, 0, 0, 0, 0)
   }
 
   ngOnInit(): void {
@@ -27,5 +28,9 @@ export class PrincipalComponent implements OnInit {
         this.books = response.libros
       }
     )
+  }
+
+  prestar(id: any){
+    localStorage.setItem('prestado', id)
   }
 }

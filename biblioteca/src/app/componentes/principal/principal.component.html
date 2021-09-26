@@ -1,37 +1,39 @@
-<p>principal works!</p>
 <body>
-    <div class="card-group">
-        <div style=" padding-left:5px" *ngFor='let book of books'>
-            <!--Todos los libros o revistas-->
-            <div *ngIf='_bookService.getOpcion()==book.tipo' class="card" style="width: 18rem;">
-                <div class="card h-100" >
-                    <img src="{{ 'https://picsum.photos/300/150?' + book.autor }}" class="card-img-top" alt="...">
-                    <div class="card-body" style="height: 14.5rem;">
-                      <h4 class="card-title">{{book.titulo}}</h4>
-                      <h6><em>Autor: {{book.autor}} <br> Edición: {{book.edicion}}</em><br></h6>
-                      <h6 *ngIf='book.tipo=="revista"'>Frecuencia: {{book.frecuencia}}</h6>
-                      <p class="card-text" style="height: 6rem; overflow: auto;">{{book.descripcion}}</p>
-                    </div>
-                    <div class="card-footer bg-transparent">
-                        <a href="#" class="btn btn-primary">Pedir Prestado</a>
+    <header>
+        <h1 *ngIf='_bookService.getOpcion()=="libro"'>Books</h1>
+        <h1 *ngIf='_bookService.getOpcion()=="revista"'>Magazine</h1>
+        <h1 *ngIf='!_bookService.getOpcion()'>Principal</h1>
+    </header>
+    <article>
+        <div class="card-group">
+            <div *ngFor='let book of books' style=" padding-left: 8px">
+                <div *ngIf='!_bookService.getOpcion() && book.disponibles > 0 || _bookService.getOpcion()==book.tipo && book.disponibles > 0' style="width: 18rem;">
+                  <div class="card mb-3">
+                      <img src="{{ 'https://picsum.photos/300/150?' + book._id }}" class="card-img-top" alt="">
+                      <div class="card-body" style="height: 14.5rem;">
+                          <h4>{{book.titulo}}</h4>
+                          <div class="card-explication">
+                              <em>
+                                  Autor: <b>{{book.autor}}</b><br>
+                                  Edición: <b>{{book.edicion}}</b><br>
+                              </em>
+
+                              <em *ngIf='book.tipo=="libro"'><br></em>
+
+                              <em *ngIf='book.tipo=="revista"'>
+                                  Frecuencia: <b>{{book.frecuencia}}</b>
+                              </em>
+                          </div>
+                          <div class="card-text">
+                              {{book.descripcion}}
+                          </div>
+                      </div>
+                      <div class="card-footer bg-transparent">
+                          <a href="#" class="btn btn-primary float-end" (click)='prestar(book._id)' routerLink="/ebook" routerLinkActive="active">Pedir Prestado</a>
                       </div>
                   </div>
-            </div>
-            <!--Todos los libros y revistas-->
-            <div *ngIf='!_bookService.getOpcion()' class="card" style="width: 18rem;">
-                <div class="card h-100" >
-                    <img src="{{ 'https://picsum.photos/300/150?' + book.autor }}" class="card-img-top" alt="...">
-                    <div class="card-body" style="height: 14.5rem;">
-                      <h4 class="card-title">{{book.titulo}}</h4>
-                      <h6><em>Autor: {{book.autor}} <br> Edición: {{book.edicion}}</em><br></h6>
-                      <h6 *ngIf='book.tipo=="revista"'>Frecuencia: {{book.frecuencia}}</h6>
-                      <p class="card-text" style="height: 6rem; overflow: auto;">{{book.descripcion}}</p>
-                    </div>
-                    <div class="card-footer bg-transparent">
-                        <a href="#" class="btn btn-primary">Pedir Prestado</a>
-                      </div>
-                  </div>
+                </div>
             </div>
         </div>
-    </div>
+    </article>
 </body>

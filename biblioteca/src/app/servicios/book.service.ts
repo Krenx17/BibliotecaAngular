@@ -14,7 +14,7 @@ export class BookService {
   public token: any
   public url: String
 
-  constructor(public _http: HttpClient) { 
+  constructor(public _http: HttpClient) {
     this.url = environment.url
   }
 
@@ -28,7 +28,7 @@ export class BookService {
   editBook(libro: Book): Observable<any>{
     let headersToken = this.headersvar.set('Authorization', this.getToken2())
     let data = JSON.stringify(libro)
-    
+
     return this._http.put(this.url+'/edit_book/'+libro._id, data, {headers: headersToken})
   }
 
@@ -61,7 +61,7 @@ export class BookService {
   prestar(id: any): Observable<any>{
     let headersToken = this.headersvar.set('Authorization', this.getToken2())
 
-    return this._http.post(this.url+'/prestar_book/'+id, {headers: headersToken})
+    return this._http.get(this.url+'/prestar_book/'+id, {headers: headersToken})
   }
 
   devolver(id: any): Observable<any>{
@@ -79,7 +79,7 @@ export class BookService {
     }
     return this.token;
   }
-  
+
   getIdentidad(){
     var identidad2 = JSON.parse(localStorage.getItem('identidad') || '{}');
     if (identidad2 !="undefined"){

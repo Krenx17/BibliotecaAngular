@@ -12,8 +12,8 @@ import { UserService } from 'src/app/servicios/user.service';
 export class RegisterComponent implements OnInit {
   public userModel: User
 
-  constructor(private _userService: UserService, private _router: Router) { 
-    this.userModel = new User('', '', '', '', '', '', '', '', '')
+  constructor(private _userService: UserService, private _router: Router) {
+    this.userModel = new User('', '', '', '', '', '', '', '', [{libro:''}], [{libro:''}], '')
   }
 
   ngOnInit(): void {

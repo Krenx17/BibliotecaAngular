@@ -64,6 +64,18 @@ export class UserService {
     return this._http.get(this.url+'/idUser/'+id, {headers: headersToken})
   }
 
+  prestados(): Observable<any>{
+    let headersToken = this.headersvar.set('Authorization', this.getToken2())
+
+    return this._http.get(this.url+'/prestados', {headers: headersToken})
+  }
+
+  historial(): Observable<any>{
+    let headersToken = this.headersvar.set('Authorization', this.getToken2())
+
+    return this._http.get(this.url+'/historial', {headers: headersToken})
+  }
+
   getToken2(){
     var token2 = localStorage.getItem('token')
     if (token2 !="undefined"){

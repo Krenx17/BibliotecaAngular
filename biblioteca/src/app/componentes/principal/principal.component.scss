@@ -2,3 +2,31 @@ body{
     overflow: scroll;
 }
 
+.card{
+    $spacer: 0;
+    box-shadow: 0.25rem 5px rgba($color: #000000, $alpha: .09);
+}
+
+.card-body{
+    padding: 1rem;
+}
+
+.card-explication{
+    font-size: 14px;
+}
+
+.card-body h4{
+    text-align: center;
+}
+
+.card-text{
+    padding: 5px;
+    font-size: 14px;
+    text-align: justify;
+    overflow: hidden;
+    width: 100%;
+    height: 6.5rem;
+    border: PowderBlue 5px double;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}

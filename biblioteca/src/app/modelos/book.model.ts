@@ -9,6 +9,10 @@ export class Book{
         public palabrasclave: String,
         public descripcion: String,
         public temas: String,
-        public copias: Number 
+        public copias: Number,
+        public disponibles: Number,
+        public prestado: Number,
+        public prestados: Number,
+        public buscado: Number 
     ){}
 }
